@@ -1,9 +1,18 @@
 <section class="section">
-  <h2 class="title">Welcome to the Unofficial Interstate Sticker Club web app</h2>
+  <h1 class="title is-1">Welcome to the Unofficial Interstate Sticker Club web app</h1>
 
   <% if user_signed_in? %>
-    <p>Welcome <%= current_user.name %></p>
-    <p>Albums</p>
+    <section class="section">
+      <p>Welcome <%= current_user.name %></p>
+    </section>
+    <section class="section">
+      <% if current_user.album %>
+        <p class="subtitle">Your album:</p>
+        <%= render "albums/show" %>
+      <% else %>
+        <%= link_to "Create Album", new_album_path, class: "button is-success" %>
+      <% end %>
+    </section>
     <p><%= link_to "Sign out", destroy_user_session_path, method: "DELETE" %></p>
   <% else  %>
     <p>

@@ -1,0 +1,21 @@
+<% (0..9).each do |i| %>
+  <div class="columns">
+    <% (1..10).each do |j| %>
+      <div class="column">
+        <div class="control">
+          <% sticker = j  + (10 * i) %>
+          <p class="box has-text-centered has-text-weight-bold is-size-1">
+            <%= sticker %>
+          </p>
+          <% if @album.send("got_it_sticker_#{sticker}?") %>
+            <span class="tag is-success">Got it</span>
+          <% elsif @album.send("duplicate_sticker_#{sticker}?") %>
+            <span class="tag is-info">Duplicated</span>
+          <% else %>
+            <span class="tag is-danger">Missing</span>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
