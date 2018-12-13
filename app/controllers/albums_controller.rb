@@ -1,13 +1,8 @@
 class AlbumsController < ApplicationController
   before_action :authenticate_user!, only: [:edit, :save, :new, :create, :update]
 
-  def index
-    @album = current_user.album
-  end
-
   def show
     @album = Album.find(params[:id])
-    render :index
   end
 
   def edit

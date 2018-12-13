@@ -20,7 +20,7 @@ test:
   <<: *default
   database: interstate_sticker_club_test
 
-  production:
+production:
   <<: *default
   database: myapp_production
   username: myapp
