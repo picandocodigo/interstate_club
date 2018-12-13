@@ -4,38 +4,40 @@
 
   <%= form_for @album do |f| %>
     <%= f.hidden_field(:user_id) %>
-    <% (0..9).each do |i| %>
-      <div class="columns">
-        <% (1..10).each do |j| %>
-          <div class="column">
-            <div class="control">
-              <% sticker = j  + (10 * i) %>
-              <p class="box has-text-centered has-text-weight-bold is-size-1">
+    <div class="grid-wrapper">
+      <% (1..100).each do |sticker| %>
+          <div class="grid-item">
+            <div class="control has-text-centered">
+              <p class="box has-text-centered has-text-weight-bold sticker-number">
                 <%= sticker %>
               </p>
 
-              <label class="radio">
+              <label class="sticker-actions button is-primary is-fullwidth">
                 <%= f.radio_button("sticker_#{sticker}".to_sym, "got_it") %>
-                <!-- <input type="radio" id="got_it" name="sticker_<%= sticker %>"> -->
-                Got it
+                <span for="<%= "album_sticker_#{sticker}_got_it" %>" class="radio">
+                  Got it
+                </span>
               </label>
 
-              <label class="radio">
+              <label class="sticker-actions button is-info is-fullwidth">
                 <%= f.radio_button("sticker_#{sticker}".to_sym, "duplicate") %>
-                Duplicate
+                <span for="<%= "album_sticker_#{sticker}_duplicate" %>" class="radio">
+                  Duplicate
+                </span>
               </label>
 
-              <label class="radio">
+              <label class="sticker-actions button is-danger is-fullwidth">
                 <%= f.radio_button("sticker_#{sticker}".to_sym, "missing") %>
-                Missing
+                <span for="<%= "album_sticker_#{sticker}_missing" %>" class="radio">
+                  Missing
+                </span>
               </label>
             </div>
           </div>
-        <% end %>
-      </div>
-    <% end %>
 
-    <%= f.submit "Save", class: "button is-success is-large" %>
-    <%= link_to "Cancel", '/', class: "button is-danger is-large" %>
+      <% end %>
+        </div>
+        <%= f.submit "Save", class: "button is-success is-large" %>
+        <%= link_to "Cancel", '/', class: "button is-danger is-large" %>
   <% end %>
 </section>

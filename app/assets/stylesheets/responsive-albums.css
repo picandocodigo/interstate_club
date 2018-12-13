@@ -1,0 +1,57 @@
+.grid-wrapper{
+  width: 100%;
+  margin-bottom: 2em;
+}
+.grid-item{
+  display: inline-block;
+  width: 120px;
+  padding-right: 20px;
+  padding-top: 1.5em;
+  text-align: center;
+}
+
+.sticker-number{
+  font-size: 2.5em !important;
+}
+
+.sticker-actions > input[type="radio"] {
+  display: none;
+}
+
+.sticker-actions > input:checked + span {
+  font-weight: bold;
+  opacity: 1;
+}
+
+.sticker-actions span{
+  padding: 0.3em;
+  opacity: 0.5;
+}
+
+.sticker-actions.button{
+  margin-bottom: 0.5em;
+}
+
+@media(max-width: 601px){
+  .grid-item{
+    width: 60px;
+    padding-right: 4px;
+  }
+
+  .box{
+    padding: 0.50em !important;
+  }
+
+  .sticker-number{
+    font-size: 1.5em !important;
+  }
+
+  .tag{
+    font-size: .60rem !important;
+  }
+
+  /* form */
+  .sticker-actions > span{
+    font-size: 0.75em;
+  }
+}
