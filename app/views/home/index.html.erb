@@ -1,36 +1,8 @@
 <section class="section">
   <h1 class="title is-1">Welcome to the Unofficial Interstate Sticker Club Web App</h1>
-
-  <% if user_signed_in? %>
-    <section class="section">
-      <p>Welcome <strong><%= current_user.name %></strong>
-        (<%= link_to "Sign out", destroy_user_session_path, method: "DELETE" %>)
-      </p>
-    </section>
-    <section class="section">
-      <% if current_user.album %>
-        <div class="columns">
-          <div class="column">
-            <%= link_to "Edit Album",
-                        edit_album_path(id: current_user.album.id),
-                        class: "button is-large is-fullwidth is-primary"
-            %>
-          </div>
-          <div class="column">
-            <%= link_to "View Album",
-                        album_path(id: current_user.album.id),
-                        class: "button is-large is-fullwidth is-info"
-            %>
-          </div>
-        </div>
-      <% else %>
-        <%= link_to "Create Album", new_album_path, class: "button is-success" %>
-      <% end %>
-    </section>
-  <% else  %>
-    <p>
-      <%= link_to "Sign up", new_user_registration_path %> |
-      <%= link_to "Sign in", new_user_session_path %>
-    </p>
-  <% end %>
+  <section class="hero">
+    <div class="container has-text-centered">
+      <%= image_tag "interstate-club.jpg" %>
+    </div>
+  </section>
 </section>

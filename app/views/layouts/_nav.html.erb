@@ -1,0 +1,48 @@
+<nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="/">
+      &#127968;
+    </a>
+
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navmenu">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div class="navbar-menu" id="navmenu">
+    <div class="navbar-start">
+      <% if user_signed_in? %>
+        <% if current_user.album %>
+          <%= link_to "Edit Album",
+          edit_album_path(id: current_user.album.id),
+          class: "navbar-item"
+          %>
+          <%= link_to "View Album",
+          album_path(id: current_user.album.id),
+          class: "navbar-item"
+          %>
+        <% else %>
+          <%= link_to "Create Album", new_album_path, class: "button is-success" %>
+        <% end %>
+    </div>
+    <div class="navbar-end">
+      <a class="navbar-item">
+        <em>Logged in as <%= current_user.name %></em>
+      </a>
+      <div class="buttons">
+        <%= link_to "Sign out", destroy_user_session_path, method: "DELETE", class: "navbar-item button is-danger is-outlined" %>
+      </div>
+    </div>
+      <% else %>
+  </div>
+  <div class="navbar-end">
+    <div class="buttons">
+      <%= link_to "Sign up", new_user_registration_path, class: "navbar-item button is-primary is-outlined" %>
+      <%= link_to "Sign in", new_user_session_path, class: "navbar-item button is-primary" %>
+    </div>
+    </div>
+      <% end %>
+  </div>
+</nav>
