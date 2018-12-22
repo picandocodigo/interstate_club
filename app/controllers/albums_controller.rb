@@ -3,14 +3,17 @@ class AlbumsController < ApplicationController
 
   def show
     @album = Album.find(params[:id])
+    @title = "#{@album.user.name}'s Album"
   end
 
   def edit
     @album = current_user.album
+    @title = "Edit album"
   end
 
   def new
     @album = Album.new(user: current_user)
+    @title = "New album"
   end
 
   def create

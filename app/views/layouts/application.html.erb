@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="has-navbar-fixed-top">
   <head>
-    <title>Unofficial Interstate Sticker Club</title>
+    <title><%= page_title %></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
     <%= csrf_meta_tags %>
@@ -12,13 +12,13 @@
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image"/>
     <meta name="twitter:site" content="@picandocodigo"/>
-    <meta name="twitter:title" content="The Unofficial Brewdog Interstate Sticker Club Web App"/>
+    <meta name="twitter:title" content="<%= page_title %>"/>
     <meta name="twitter:description" content="Manage your Brewdog Interstate Sticker collection"/>
     <meta name="twitter:creator" content="@picandocodigo"/>
     <meta name="twitter:image:src" content='<%= image_url "interstate-club.jpg" %>'/>
     <meta name="twitter:domain" content="https://interstate-sticker-club.herokuapp.com/"/>
     <!-- Open Graph -->
-    <meta property="og:title" content="The Unofficial Brewdog Interstate Sticker Club Web App" />
+    <meta property="og:title" content="<%= page_title %>" />
     <meta property="og:description" content="Manage your Brewdog Interstate Sticker collection" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://interstate-sticker-club.herokuapp.com/" />
